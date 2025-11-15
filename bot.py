@@ -1,6 +1,8 @@
 import os
 import asyncio
 import discord
+import 'dart:io';
+import 'package:nyxx/nyxx.dart';
 from discord.ext import commands
 from dotenv import load_dotenv
 
@@ -73,5 +75,14 @@ async def on_member_join(member: discord.Member):
     except Exception as e:
         print(f"Erro no on_member_join para {member}: {e}")
 
-bot.run(TOKEN)
+        // Fake Web Server to Keep Render Alive
+        var port = int.tryParse(Platform.environment['PORT'] ?? '8080') ?? 8080;
+        var server = await HttpServer.bind(InternetAddress.anyIPv4, port);
+        print("🌍 Fake server running on port $port");
+        await for (var request in server) {
+            request.response
+            ..write("Bot is running!")
+            ..close();
+        }
 
+bot.run(TOKEN)
