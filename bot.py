@@ -74,3 +74,4 @@ async def on_member_join(member: discord.Member):
         print(f"Erro no on_member_join para {member}: {e}")
 
 bot.run(TOKEN)
+
