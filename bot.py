@@ -1,8 +1,6 @@
 import os
 import asyncio
 import discord
-import 'dart:io';
-import 'package:nyxx/nyxx.dart';
 from discord.ext import commands
 from dotenv import load_dotenv
 
@@ -86,3 +84,4 @@ async def on_member_join(member: discord.Member):
         }
 
 bot.run(TOKEN)
+
